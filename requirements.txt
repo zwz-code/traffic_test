@@ -1,0 +1,8 @@
+ddt==1.7.2
+IPy==1.1
+jsonpath==0.82
+jsonpath_ng==1.5.3
+psycopg2==2.9.6
+PyYAML==6.0.2
+Requests==2.32.3
+unittestreport==1.5.1
