@@ -28,7 +28,7 @@ class AccessPostgre():
         :param query_fileds: 查询的字段,默认为空,可以为a,b,c...
         :param fuzzy_fields: kwargs的key中需要进行模糊查询的参数。
         :param kwargs: 查询的键值对信息，比如下面的例子中的event_type, action, dst_port都是对应t_ddoslog表中的列值。
-        result = o.get_log(waf_ip, table_name="t_ddoslog", event_type=42, action=5, dst_port=888)
+        result = o.get_log(ip, table_name="t_ddoslog", event_type=42, action=5, dst_port=888)
         :return: 返回查询结果
 
         例子：

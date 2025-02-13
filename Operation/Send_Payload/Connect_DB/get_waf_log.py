@@ -8,10 +8,10 @@ from Config.config import Config
 class GetLog:
     def __init__(self):
         conf = Config()
-        self.waf_ip = conf.waf_ip
+        self.ip = conf.ip
         self.db_usr = conf.db_usr
         self.db_psw = conf.db_psw
-        self.ap = AccessPostgre(ip=self.waf_ip, user=self.db_usr, password=self.db_psw)
+        self.ap = AccessPostgre(ip=self.ip, user=self.db_usr, password=self.db_psw)
 
     def get_log(self, table_name, fuzzy_fields=[], **kwargs):
         """

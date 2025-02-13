@@ -20,9 +20,14 @@ class Config:
         读取配置文件信息.
         :return:
         """
-        self.waf_ip = self.conf.get("waf", "waf_ip")
-        self.api_port = self.conf.get("waf", "api_port")
-        self.waf_psw = self.conf.get("waf", "password")
+        self.ip = self.conf.get("device", "ip")
+        self.port = self.conf.get("device", "port")
+        self.psw = self.conf.get("device", "password")
+        self.db_usr = self.conf.get("device", "db_usr")
+        self.db_psw = self.conf.get("device", "db_psw")
+        self.token_usr = self.conf.get("token", "token_usr")
+        self.token_psw = self.conf.get("token", "token_psw")
+        self.interface_type = self.conf.get("token", "type")
         self.ssh_port = self.conf.get("SSH", "ssh_port")
         self.ssh_psw = self.conf.get("SSH", "ssh_psw")
 

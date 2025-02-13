@@ -87,7 +87,7 @@ class Attack():
         :param payload_type:payload类型
         :param rule_id:规则Id
         :param index:标识位
-        :param waf_ip:waf的IP
+        :param ip:waf的IP
         :param table_name:数据库表名
         :param flag:标识符
         :param event_type:事件类型

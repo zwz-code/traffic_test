@@ -12,9 +12,9 @@ requests.packages.urllib3.disable_warnings()
 
 class BaseMethods:
     def __init__(self):
-        self.waf_ip = conf.waf_ip
-        self.api_port = conf.api_port
-        self.waf_psw = conf.waf_psw
+        self.ip = conf.ip
+        self.port = conf.port
+        self.psw = conf.psw
         self.db_usr = conf.db_usr
         self.db_psw = conf.db_psw
         self.token_usr = conf.token_usr
@@ -27,13 +27,13 @@ class BaseMethods:
         :param timeout: token存活时间
         :return:
         """
-        url = "https://{waf_ip}:{api_port}/rest/v3/token".format(waf_ip=self.waf_ip, api_port=self.api_port)
+        url = "https://{ip}:{port}/rest/v3/token".format(ip=self.ip, port=self.port)
         data = {
             "accountId": self.token_usr,
             "pwd": self.token_psw
         }
         cur_time = time.time()
-        if ip == self.waf_ip and (cur_time - prev_time) < timeout:
+        if ip == self.ip and (cur_time - prev_time) < timeout:
             print("token未失效")
             return prev_token
         res = requests.post(url=url, json=data, verify=False)
@@ -42,7 +42,7 @@ class BaseMethods:
             yaml_data = {
                 "token": token,
                 "prev_time": int(time.time()),
-                "waf_ip": self.waf_ip
+                "ip": self.ip
             }
             with open(config_path, "w", encoding="utf-8") as f:
                 yaml.dump(data=yaml_data, stream=f, allow_unicode=True)
@@ -60,10 +60,10 @@ class BaseMethods:
         if self.interface_type == "v3":
             token = self.get_token_write_yaml()
             headers = {'Authorization': "Bearer " + token}
-            url = "https://{waf_ip}:{port}/rest/v3/{req_path}".format(waf_ip=self.waf_ip, port=self.api_port, req_path=req_path)
+            url = "https://{ip}:{port}/rest/v3/{req_path}".format(ip=self.ip, port=self.port, req_path=req_path)
         elif self.interface_type == "v1":
             headers = {'Content-type': 'application/json'}
-            url = "https://{waf_ip}:{port}/rest/v1/{req_path}".format(waf_ip=self.waf_ip, port=self.api_port,
+            url = "https://{ip}:{port}/rest/v1/{req_path}".format(ip=self.ip, port=self.port,
                                                                       req_path=req_path)
         else:
             raise ValueError("RestApi接口类型错误!")
@@ -86,10 +86,10 @@ class BaseMethods:
             token = self.get_token_write_yaml()
             headers = {'Authorization': "Bearer " + token}
             headers.update({'Content-Type':'application/json'})
-            url = "https://{waf_ip}:{port}/rest/v3/{req_path}".format(waf_ip=self.waf_ip, port=self.api_port, req_path=req_path)
+            url = "https://{ip}:{port}/rest/v3/{req_path}".format(ip=self.ip, port=self.port, req_path=req_path)
         elif self.interface_type == "v1":
             headers = {'Content-type': 'application/json'}
-            url = "https://{waf_ip}:{port}/rest/v1/{req_path}".format(waf_ip=self.waf_ip, port=self.api_port,
+            url = "https://{ip}:{port}/rest/v1/{req_path}".format(ip=self.ip, port=self.port,
                                                                       req_path=req_path)
         else:
             raise ValueError("RestApi接口类型错误!")
@@ -111,10 +111,10 @@ class BaseMethods:
             token = self.get_token_write_yaml()
             headers = {'Authorization': "Bearer " + token}
             headers.update({'Content-Type': 'application/json'})
-            url = "https://{waf_ip}:{port}/rest/v3/{req_path}".format(waf_ip=self.waf_ip, port=self.api_port, req_path=req_path)
+            url = "https://{ip}:{port}/rest/v3/{req_path}".format(ip=self.ip, port=self.port, req_path=req_path)
         elif self.interface_type == "v1":
             headers = {'Content-type': 'application/json'}
-            url = "https://{waf_ip}:{port}/rest/v1/{req_path}".format(waf_ip=self.waf_ip, port=self.api_port,
+            url = "https://{ip}:{port}/rest/v1/{req_path}".format(ip=self.ip, port=self.port,
                                                                       req_path=req_path)
         else:
             raise ValueError("RestApi接口类型错误!")
@@ -137,10 +137,10 @@ class BaseMethods:
             token = self.get_token_write_yaml()
             headers = {'Authorization': "Bearer " + token}
             headers.update({'Content-Type':'application/json'})
-            url = "https://{waf_ip}:{port}/rest/v3/{req_path}".format(waf_ip=self.waf_ip, port=self.api_port, req_path=req_path)
+            url = "https://{ip}:{port}/rest/v3/{req_path}".format(ip=self.ip, port=self.port, req_path=req_path)
         elif self.interface_type == "v1":
             headers = {'Content-type': 'application/json'}
-            url = "https://{waf_ip}:{port}/rest/v1/{req_path}".format(waf_ip=self.waf_ip, port=self.api_port,
+            url = "https://{ip}:{port}/rest/v1/{req_path}".format(ip=self.ip, port=self.port,
                                                                       req_path=req_path)
         else:
             raise ValueError("RestApi接口类型错误!")

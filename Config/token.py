@@ -12,5 +12,5 @@ with open(config_path, 'r', encoding='utf-8') as f:
     result = yaml.load(f.read(), Loader=yaml.FullLoader)
 token = result["token"]
 prev_time = result["prev_time"]
-ip = result["waf_ip"]
+ip = result["ip"]
 
